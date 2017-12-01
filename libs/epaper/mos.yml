@@ -1,0 +1,37 @@
+author: Miska Peippo <miska.peippo@gmail.com>
+type: lib
+description: Mongoose-OS e-Paper
+version: 1.0
+
+sources:
+  - src
+
+includes:
+  - include
+
+config_schema:
+  - ["epaper", "o", {title: "e-Paper settings"}]
+  - ["epaper.dc_pin", "i", {title: "Display D/C pin"}]
+  - ["epaper.dc_pin", 22 ]
+  - ["epaper.cs_pin", "i", {title: "Display CS pin"}]
+  - ["epaper.cs_pin", 5 ]
+  - ["epaper.busy_pin" ,"i", {title: "Display BUSY status pin"}]
+  - ["epaper.busy_pin", 21 ]
+  - ["epaper.reset_pin" ,"i", {title: "Display RESET pin"}]
+  - ["epaper.reset_pin", 13 ]
+  - ["epaper.size_x", "i", {title: "Size X"}]
+  - ["epaper.size_x", 200 ]
+  - ["epaper.size_y", "i", {title: "Size Y"}]
+  - ["epaper.size_y", 200 ]
+  - ["epaper.rotation", "i", {title: "Rotation; "}]
+  - ["epaper.rotation", 0 ]
+
+libs:
+  - origin: https://github.com/mongoose-os-libs/spi
+
+tags:
+  - c
+  - spi
+  - hw
+
+manifest_version: 2017-09-29
