@@ -37,6 +37,8 @@ enum mgos_epd_rotate_t {
 };
 // Display orientation
 
+#define swap(a, b) { int t=a; a=b; b=t; }
+
 // Color inverse. 1 or 0 = set or reset a bit if set a colored pixel
 #define IF_INVERT_COLOR     1
 
@@ -52,26 +54,29 @@ void mgos_epd_set_height(const int height);
 enum mgos_epd_rotate_t mgos_epd_get_rotate(void);
 void mgos_epd_set_rotate(const enum mgos_epd_rotate_t rotate);
 
-uint8_t* mgos_epd_get_image(void);
-void mgos_epd_set_image(uint8_t* image);
+uint8_t* mgos_epd_getFrameBuffer(void);
+void mgos_epd_setFrameBuffer(uint8_t* image);
 
-/**
- *  @brief: this draws a pixel by the coordinates
- */
-void mgos_epd_draw_pixel(const int x, const int y, const int colored);
-void mgos_epd_draw_line(const int x0, const int y0, const int x1, const int y1, const int colored);
 void mgos_epd_draw_horizontal_line(const int x, const int y, const int line_width, const int colored);
 void mgos_epd_draw_vertical_line(const int x, const int y, const int line_height, const int colored);
 void mgos_epd_draw_rectangle(const int x0, const int y0, const int x1, const int y1, const int colored);
 void mgos_epd_draw_filled_rectangle(const int x0, const int y0, const int x1, const int y1, const int colored);
-void mgos_epd_draw_circle(const int x, const int y, const int radius, const int colored);
+void mgos_epd_drawCircle(const int x, const int y, const int radius, const int colored);
 
-void mgos_epd_draw_filled_circle(const int x, const int y, const int radius, const int colored);
 
 void mgos_epd_draw_char_at(const int x, const int y, const char ascii_char, const sFONT* const font, const int colored);
 void mgos_epd_draw_string_at(const int x, const int y, const char* text, const sFONT* const font, const int colored);
 
-void mgos_epd_render_time(void);
+void mgos_epd_drawFilledCircle(const int x, const int y, const int radius, const int colored);
+
+/**
+ *  @brief: this draws a pixel by the coordinates
+ */
+void mgos_epdDrawPixel(const int x, const int y, const int colored);
+void mgos_epd_drawLine(const int x0, const int y0, const int x1, const int y1, const int colored);
+void mgos_epd_drawRoundRect(int16_t x0, int16_t y0, uint16_t w, uint16_t h, uint16_t r, const int colored);
+
+void mgos_epd_print(uint16_t x0, uint16_t y0, char *string);
 
 #endif // _MGOS_LIBS_EPAPER_EPDPAINT_H
 

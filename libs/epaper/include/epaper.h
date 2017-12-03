@@ -62,7 +62,6 @@ int mgos_epd_reset(void);
 void mgos_epd_wait_idle(void);
 void mgos_epd_sleep(void);
 
-void mgos_epd_set_frame_memory(const uint8_t* image_buffer, const int x, const int y, const int image_width, const int image_height);
 void mgos_epd_clear_frame_memory(const uint8_t color);
 void mgos_epd_display_frame(void);
 
@@ -71,6 +70,14 @@ void mgos_epd_set_memory_pointer(const int x, const int y);
 void mgos_epd_set_lut(enum epaper_update_type_t lut_type);
 
 bool mgos_epd_display_init(enum epaper_update_type_t type);
+
+
+
+void mgos_epd_pushFrameBuffer(const uint8_t* image_buffer, const int x, const int y, const int image_width, const int image_height);
+void mgos_epd_pushFrameBufferRel(const uint8_t* image_buffer, const int x, const int y, const int image_width, const int image_height);
+
+void mgos_epdUpdateNeeded(void);
+void mgos_epdUpdate(void);
 
 
 #endif		// _MGOS_LIBS_EPAPER_H

@@ -1,2 +1,2 @@
 # mos-epaper
-Mongoose OS ePaper
+Mongoose OS ePaper - work in progress

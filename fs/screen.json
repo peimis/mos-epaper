@@ -1,0 +1,34 @@
+{
+  "name": "Main",
+  "widgets": [
+    {
+      "name": "one",
+      "x": 0,
+      "y": 5,
+      "w": 200,
+      "h": 24,
+      "label": "Widget one",
+      "type": 2,
+      "screen": "screen_one.json"
+    },
+    {
+      "name": "two",
+      "x": 32,
+      "y": 36,
+      "w": 64,
+      "h": 64,
+      "label": "Two",
+      "type": 2,
+      "screen": "screen_two.json"
+    },
+    {
+      "name": "three",
+      "x": 128,
+      "y": 100,
+      "w": 64,
+      "h": 50,
+      "label": "Three",
+      "type": 2
+    }
+  ]
+}
